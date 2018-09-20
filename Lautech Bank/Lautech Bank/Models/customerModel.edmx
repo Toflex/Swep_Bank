@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="lautechBankModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="lautechBankModelStoreContainer">
+          <EntitySet Name="Account_balance" EntityType="lautechBankModel.Store.Account_balance" store:Type="Tables" store:Schema="dbo" store:Name="Account_balance">
+            <DefiningQuery>SELECT 
+      [Account_balance].[AccNo] AS [AccNo], 
+      [Account_balance].[amount] AS [amount]
+      FROM [dbo].[Account_balance] AS [Account_balance]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Account_Detail" EntityType="lautechBankModel.Store.Account_Detail" store:Type="Tables" store:Schema="dbo" store:Name="Account_Detail">
+            <DefiningQuery>SELECT 
+      [Account_Detail].[AccNo] AS [AccNo], 
+      [Account_Detail].[Image] AS [Image], 
+      [Account_Detail].[AccType] AS [AccType]
+      FROM [dbo].[Account_Detail] AS [Account_Detail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Transactions" EntityType="lautechBankModel.Store.Transactions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="userdetail" EntityType="lautechBankModel.Store.userdetail" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Account_balance_userdetail" Association="lautechBankModel.Store.FK_Account_balance_userdetail">
+            <End Role="userdetail" EntitySet="userdetail" />
+            <End Role="Account_balance" EntitySet="Account_balance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_Detail_userdetail" Association="lautechBankModel.Store.FK_Account_Detail_userdetail">
+            <End Role="userdetail" EntitySet="userdetail" />
+            <End Role="Account_Detail" EntitySet="Account_Detail" />
+          </AssociationSet>
+          <AssociationSet Name="transaction_fK" Association="lautechBankModel.Store.transaction_fK">
+            <End Role="userdetail" EntitySet="userdetail" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\JESUS OWN\DOCUMENTS\VISUAL STUDIO 2012\PROJECTS\LAUTECH BANK\LAUTECH BANK\APP_DATA\LAUTECHBANK.MDF.dbo.Account_balance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Account_balance">
+          <Key>
+            <PropertyRef Name="AccNo" />
+            <PropertyRef Name="amount" />
+          </Key>
+          <Property Name="AccNo" Type="bigint" Nullable="false" />
+          <Property Name="amount" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\JESUS OWN\DOCUMENTS\VISUAL STUDIO 2012\PROJECTS\LAUTECH BANK\LAUTECH BANK\APP_DATA\LAUTECHBANK.MDF.dbo.Account_Detail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Account_Detail">
+          <Key>
+            <PropertyRef Name="AccNo" />
+            <PropertyRef Name="AccType" />
+          </Key>
+          <Property Name="AccNo" Type="bigint" Nullable="false" />
+          <Property Name="Image" Type="varchar(max)" />
+          <Property Name="AccType" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="trans_type" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Date&amp;Time" Type="datetime" Nullable="false" />
+          <Property Name="AccNo" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userdetail">
+          <Key>
+            <PropertyRef Name="AccNo" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="AccNo" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fNmae" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Account_balance_userdetail">
+          <End Role="userdetail" Type="lautechBankModel.Store.userdetail" Multiplicity="1" />
+          <End Role="Account_balance" Type="lautechBankModel.Store.Account_balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userdetail">
+              <PropertyRef Name="AccNo" />
+            </Principal>
+            <Dependent Role="Account_balance">
+              <PropertyRef Name="AccNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_Detail_userdetail">
+          <End Role="userdetail" Type="lautechBankModel.Store.userdetail" Multiplicity="1" />
+          <End Role="Account_Detail" Type="lautechBankModel.Store.Account_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userdetail">
+              <PropertyRef Name="AccNo" />
+            </Principal>
+            <Dependent Role="Account_Detail">
+              <PropertyRef Name="AccNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="transaction_fK">
+          <End Role="userdetail" Type="lautechBankModel.Store.userdetail" Multiplicity="1" />
+          <End Role="Transactions" Type="lautechBankModel.Store.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userdetail">
+              <PropertyRef Name="AccNo" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="AccNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="lautechBankModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="lautechBankEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Account_balance" EntityType="lautechBankModel.Account_balance" />
+          <EntitySet Name="Account_Detail" EntityType="lautechBankModel.Account_Detail" />
+          <EntitySet Name="Transactions" EntityType="lautechBankModel.Transaction" />
+          <EntitySet Name="userdetails" EntityType="lautechBankModel.userdetail" />
+          <AssociationSet Name="FK_Account_balance_userdetail" Association="lautechBankModel.FK_Account_balance_userdetail">
+            <End Role="userdetail" EntitySet="userdetails" />
+            <End Role="Account_balance" EntitySet="Account_balance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_Detail_userdetail" Association="lautechBankModel.FK_Account_Detail_userdetail">
+            <End Role="userdetail" EntitySet="userdetails" />
+            <End Role="Account_Detail" EntitySet="Account_Detail" />
+          </AssociationSet>
+          <AssociationSet Name="transaction_fK" Association="lautechBankModel.transaction_fK">
+            <End Role="userdetail" EntitySet="userdetails" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account_balance">
+          <Key>
+            <PropertyRef Name="AccNo" />
+            <PropertyRef Name="amount" />
+          </Key>
+          <Property Name="AccNo" Type="Int64" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="userdetail" Relationship="lautechBankModel.FK_Account_balance_userdetail" FromRole="Account_balance" ToRole="userdetail" />
+        </EntityType>
+        <EntityType Name="Account_Detail">
+          <Key>
+            <PropertyRef Name="AccNo" />
+            <PropertyRef Name="AccType" />
+          </Key>
+          <Property Name="AccNo" Type="Int64" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="AccType" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="userdetail" Relationship="lautechBankModel.FK_Account_Detail_userdetail" FromRole="Account_Detail" ToRole="userdetail" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="trans_type" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Date_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AccNo" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="userdetail" Relationship="lautechBankModel.transaction_fK" FromRole="Transactions" ToRole="userdetail" />
+        </EntityType>
+        <EntityType Name="userdetail">
+          <Key>
+            <PropertyRef Name="AccNo" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="AccNo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fNmae" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Account_balance" Relationship="lautechBankModel.FK_Account_balance_userdetail" FromRole="userdetail" ToRole="Account_balance" />
+          <NavigationProperty Name="Account_Detail" Relationship="lautechBankModel.FK_Account_Detail_userdetail" FromRole="userdetail" ToRole="Account_Detail" />
+          <NavigationProperty Name="Transactions" Relationship="lautechBankModel.transaction_fK" FromRole="userdetail" ToRole="Transactions" />
+        </EntityType>
+        <Association Name="FK_Account_balance_userdetail">
+          <End Role="userdetail" Type="lautechBankModel.userdetail" Multiplicity="1" />
+          <End Role="Account_balance" Type="lautechBankModel.Account_balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userdetail">
+            </Principal>
+            <Dependent Role="Account_balance">
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_Detail_userdetail">
+          <End Role="userdetail" Type="lautechBankModel.userdetail" Multiplicity="1" />
+          <End Role="Account_Detail" Type="lautechBankModel.Account_Detail" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="userdetail">
+            </Principal>
+            <Dependent Role="Account_Detail">
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="transaction_fK">
+          <End Role="userdetail" Type="lautechBankModel.userdetail" Multiplicity="1" />
+          <End Role="Transactions" Type="lautechBankModel.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userdetail">
+            </Principal>
+            <Dependent Role="Transactions">
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="lautechBankModelStoreContainer" CdmEntityContainer="lautechBankEntities1">
+          <EntitySetMapping Name="Account_balance">
+            <EntityTypeMapping TypeName="lautechBankModel.Account_balance">
+              <MappingFragment StoreEntitySet="Account_balance">
+                <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Account_Detail">
+            <EntityTypeMapping TypeName="lautechBankModel.Account_Detail">
+              <MappingFragment StoreEntitySet="Account_Detail">
+                <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="AccType" ColumnName="AccType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="lautechBankModel.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="trans_type" ColumnName="trans_type" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date_Time" ColumnName="Date&amp;Time" />
+                <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userdetails">
+            <EntityTypeMapping TypeName="lautechBankModel.userdetail">
+              <MappingFragment StoreEntitySet="userdetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+                <ScalarProperty Name="fNmae" ColumnName="fNmae" />
+                <ScalarProperty Name="lName" ColumnName="lName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

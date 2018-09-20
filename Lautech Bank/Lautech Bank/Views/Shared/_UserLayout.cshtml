@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container-fluid">
+    <header>
+        <h1>Lautech Bank </h1>            
+                    <ul id="menu">
+                       <li>@Html.ActionLink("Home", "Home", "Action")</li>
+                       <li>@Html.ActionLink("Transaction History", "Transaction", "Action")</li>
+                       <li>@Html.ActionLink("Account Information", "Detail", "Action")</li>
+                     </ul>                     
+    </header>
+        
+        <div class="container">
+            @RenderSection("featured", required: false)
+            
+                @RenderBody()
+            
+        </div>    
+      @Html.Partial("_Footer")
+
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

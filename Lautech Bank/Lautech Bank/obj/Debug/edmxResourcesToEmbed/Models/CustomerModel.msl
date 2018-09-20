@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="lautechBankModelStoreContainer" CdmEntityContainer="lautechBankEntities1">
+    <EntitySetMapping Name="Account_balance">
+      <EntityTypeMapping TypeName="lautechBankModel.Account_balance">
+        <MappingFragment StoreEntitySet="Account_balance">
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Account_Detail">
+      <EntityTypeMapping TypeName="lautechBankModel.Account_Detail">
+        <MappingFragment StoreEntitySet="Account_Detail">
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="AccType" ColumnName="AccType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="lautechBankModel.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="trans_type" ColumnName="trans_type" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date&amp;Time" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userdetails">
+      <EntityTypeMapping TypeName="lautechBankModel.userdetail">
+        <MappingFragment StoreEntitySet="userdetail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="fNmae" ColumnName="fNmae" />
+          <ScalarProperty Name="lName" ColumnName="lName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

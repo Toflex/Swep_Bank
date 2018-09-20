@@ -1,0 +1,61 @@
+﻿@model Lautech_Bank.Models.registeration
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>registeration</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fNmae)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fNmae)
+            @Html.ValidationMessageFor(model => model.fNmae)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.lName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.lName)
+            @Html.ValidationMessageFor(model => model.lName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.confirmpassword)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.confirmpassword)
+            @Html.ValidationMessageFor(model => model.confirmpassword)
+            <label>@ViewBag.error</label>
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

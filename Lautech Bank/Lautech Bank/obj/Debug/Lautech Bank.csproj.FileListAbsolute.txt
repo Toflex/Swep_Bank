@@ -1,0 +1,49 @@
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\Lautech Bank.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\Lautech Bank.pdb
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\Antlr3.Runtime.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.AspNet.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.Core.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.OAuth.Consumer.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.OAuth.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.OpenId.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\EntityFramework.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\Microsoft.Web.Infrastructure.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\Microsoft.Web.WebPages.OAuth.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\Newtonsoft.Json.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Net.Http.Formatting.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Helpers.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Http.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Http.WebHost.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Mvc.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Optimization.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Razor.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.WebPages.Deployment.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.WebPages.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.WebPages.Razor.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\WebGrease.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\WebMatrix.Data.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\WebMatrix.WebData.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\EntityFramework.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\Newtonsoft.Json.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Net.Http.Formatting.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Helpers.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Http.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Http.WebHost.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Mvc.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.Razor.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.WebPages.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.WebPages.Deployment.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\System.Web.WebPages.Razor.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\WebMatrix.Data.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\Microsoft.Web.WebPages.OAuth.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\WebMatrix.WebData.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.AspNet.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.Core.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.OAuth.Consumer.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.OAuth.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.OpenId.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\obj\Debug\Lautech Bank.csprojResolveAssemblyReference.cache
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\obj\Debug\Lautech Bank.dll
+c:\users\jesus own\documents\visual studio 2012\Projects\Lautech Bank\Lautech Bank\obj\Debug\Lautech Bank.pdb
