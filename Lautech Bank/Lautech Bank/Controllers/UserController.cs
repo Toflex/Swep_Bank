@@ -1,16 +1,20 @@
-﻿using Lautech_Bank.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Lautech_Bank.Models.MyModels;
+using Lautech_Bank.Models;
+using System.Collections;
 
 namespace Lautech_Bank.Controllers
 {
     public class UserController : Controller
     {
+        private Lautech_BankContext db = new Lautech_BankContext();
 
-        lautechBankEntities1 db = new lautechBankEntities1();
         //
         // GET: /User/
 
@@ -19,13 +23,22 @@ namespace Lautech_Bank.Controllers
             return View();
         }
 
-        //
-        // GET: /User/Details/5
 
-        public ActionResult TransactionHistory()
+        [HttpPost]
+        public ActionResult Index(UserLogin model)
         {
-            var tran = db.Transactions.Where(s => s.AccNo == 100000003);
-            return View(tran.ToList());
+            if (ModelState.IsValid)
+            {
+                List<Userdetail> ud = db.Userdetails.Where(e => e.accNo.Equals(model.Accno) && e.password.Equals(model.password)).ToList();
+                if (ud.Count != 1)
+                {
+                    ViewBag.message = "Account number or password incorrect";
+                    return View(model);
+                }
+                else
+                    return RedirectToAction("Home");
+            }
+            return View(model);
         }
 
         //
@@ -40,70 +53,98 @@ namespace Lautech_Bank.Controllers
         // POST: /User/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(registeration userLog)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            if (ModelState.IsValid)
+            {         
+                if(!userLog.confirmpassword.Equals(userLog.password)){
+                     ViewBag.message = "Password does not match";
+                    return View(userLog);
+                }
+                String accId;
+            var user = db.Userdetails.OrderByDescending(t => t.accNo).FirstOrDefault();                
+                if (user == null)
+                {
+                    accId = "0000000001";
+                }
+                else
+                {                    
+                    accId = (Convert.ToInt32(user.accNo)+1).ToString();
+                }               
+                var amount = 0.00;
+                Userdetail userId = new Userdetail();
+                userId.accNo = accId;
+                userId.amount = amount;
+                userId.fname = userLog.fName;
+                userId.lName = userLog.lName;
+                userId.Email = userLog.Email;
+                userId.password = userLog.password;
+                userId.accountType = userLog.accountType;
 
+                db.Userdetails.Add(userId);
+                db.SaveChanges();
+                Session["logedUser"] = accId;
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(userLog);
         }
 
-        //
-        // GET: /User/Edit/5
+        //=================================================After Logging in======================================================//
 
-        public ActionResult Edit()
+        public ActionResult Transaction()
+        {
+            return View(db.Transactions.ToList());
+        }
+
+        public ActionResult Home()
         {
             return View();
         }
 
-        //
-        // POST: /User/Edit/5
-
+        
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Home( [Bind (Include="withname")] Withdrawal WD)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                var res = db.Userdetails.Where(e => e.accNo.Equals(Session["logedUser"].ToString())).FirstOrDefault();
+                
+                try{
+                  double wd =  Convert.ToDouble(WD.withdraw);
+                  double currentBal = res.amount;
+                  if (currentBal >= wd)
+                  {
+                      double newBal = Math.Round(currentBal - res.amount,2);
+                      res.amount = newBal;
+                      db.Entry(res).State = EntityState.Modified;
+
+                      Transactions tran = new Transactions();
+                      tran.amount = newBal.ToString();
+                      tran.trans_date = DateTime.Now;
+                      db.Transactions.Add(tran);
+                      db.SaveChanges();
+                      return View();
+                  }
+                }
+                catch{
+                    ViewBag.message = "Please enter a valid Value";
+                        return View(WD);
+                }                
             }
-            catch
-            {
-                return View();
-            }
+            return View(WD);
         }
 
-        //
-        // GET: /User/Delete/5
 
-        public ActionResult Delete(int id)
+        //=================================================After Logging in======================================================//
+
+
+        protected override void Dispose(bool disposing)
         {
-            return View();
+            db.Dispose();
+            base.Dispose(disposing);
         }
 
-        //
-        // POST: /User/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-    }
+    }   
 }

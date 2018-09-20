@@ -1,0 +1,19 @@
+﻿@model Lautech_Bank.Models.Withdrawal
+
+@{
+    ViewBag.Title = "Withdrawal Page";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}   
+    <div class="withdraw">
+       <form class="form-inline" role="form">
+          <div class="form-group mydiv">
+            <label for="withname">Withdraw </label>
+            <input type="text" class="form-control" id="withname" placeholder="0.00">         
+        <button type="submit" class="btn btn-primary">Get</button>
+               </div> 
+        </form>       
+       </div>    
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

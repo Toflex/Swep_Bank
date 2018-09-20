@@ -11,13 +11,13 @@
     <header>
         <h1>Lautech Bank </h1>            
                     <ul id="menu">
-                       <li>@Html.ActionLink("Home", "Home", "Action")</li>
-                       <li>@Html.ActionLink("Transaction History", "Transaction", "Action")</li>
-                       <li>@Html.ActionLink("Account Information", "Detail", "Action")</li>
-                     </ul>                     
+                       <li>@Html.ActionLink("Home", "Home", "User")</li>
+                       <li>@Html.ActionLink("Transaction History", "Transaction", "User")</li>
+                       <li>@Html.ActionLink("Account Information", "Detail", "User")</li>
+                     </ul>                   
     </header>
         
-        <div class="container">
+        <div class="container body-wrapper">
             @RenderSection("featured", required: false)
             
                 @RenderBody()

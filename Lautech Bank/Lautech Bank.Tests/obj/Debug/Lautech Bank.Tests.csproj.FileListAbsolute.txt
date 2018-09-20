@@ -1,1 +1,35 @@
 C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Lautech Bank\Lautech Bank.Tests\obj\Debug\Lautech Bank.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Lautech Bank.Tests.dll.config
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Lautech Bank.Tests.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Lautech Bank.Tests.pdb
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Lautech Bank.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\WebGrease.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Lautech Bank.pdb
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Http.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\obj\Debug\Lautech Bank.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\obj\Debug\Lautech Bank.Tests.dll
+C:\Users\Jesus Own\Documents\Visual Studio 2012\Projects\Swep_Bank-master\Swep_Bank-master\Lautech Bank\Lautech Bank.Tests\obj\Debug\Lautech Bank.Tests.pdb

@@ -164,41 +164,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ActionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account_balance.cs">
-      <DependentUpon>customerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Account_Detail.cs">
-      <DependentUpon>customerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\customerModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customerModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\customerModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\customerModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customerModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account\Detail.cs" />
     <Compile Include="Models\Account\UserLogin.cs" />
     <Compile Include="Models\Account\registeration.cs" />
-    <Compile Include="Models\Transaction.cs">
-      <DependentUpon>customerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\userdetail.cs">
-      <DependentUpon>customerModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Lautech_BankContext.cs" />
+    <Compile Include="Models\MyModels\Transactions.cs" />
+    <Compile Include="Models\MyModels\Userdetail.cs" />
+    <Compile Include="Models\Withdrawal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,23 +241,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\customerModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>customerModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\customerModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>customerModel.edmx</DependentUpon>
-      <LastGenOutput>customerModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\customerModel.edmx.diagram">
-      <DependentUpon>customerModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\customerModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>customerModel.edmx</DependentUpon>
-      <LastGenOutput>customerModel.cs</LastGenOutput>
-    </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -324,9 +284,10 @@
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
-    <Content Include="Views\User\TransactionHistory.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Transaction.cshtml" />
+    <Content Include="Views\User\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

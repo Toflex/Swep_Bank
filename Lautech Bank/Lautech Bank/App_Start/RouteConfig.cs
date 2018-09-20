@@ -16,7 +16,7 @@ namespace Lautech_Bank
             routes.MapRoute(
               name: "MainPage",
               url: "{controller}/{action}/{id}",
-              defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional }
+              defaults: new { controller = "User", action = "create", id = UrlParameter.Optional }
           );                     
         }
     }

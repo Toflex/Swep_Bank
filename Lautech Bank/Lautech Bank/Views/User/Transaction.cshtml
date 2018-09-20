@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Lautech_Bank.Models.MyModels.Transactions>
+
+@{
+    ViewBag.Title = "Transaction";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Transaction</h2>
+
+<div class="table-responsive">
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.trans_detail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trans_date)
+        </th>
+    </tr>
+   
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.trans_detail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trans_date)
+        </td>        
+    </tr>
+}
+
+</table>    
+    </div>
