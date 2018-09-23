@@ -19,13 +19,13 @@ namespace Lautech_Bank.Controllers
         // GET: /User/
 
         public ActionResult Index()
-        {
+        {            
             return View();
         }
 
 
         [HttpPost]
-        public ActionResult Index(UserLogin model)
+        public ActionResult Index([Bind(Include="Accno,password")] UserLogin model)
         {
             if (ModelState.IsValid)
             {
@@ -36,7 +36,10 @@ namespace Lautech_Bank.Controllers
                     return View(model);
                 }
                 else
+                {
+                    Session["logedUser"] = model.Accno;
                     return RedirectToAction("Home");
+                }
             }
             return View(model);
         }
@@ -44,7 +47,7 @@ namespace Lautech_Bank.Controllers
         //
         // GET: /User/Create
 
-        public ActionResult Create()
+        public ActionResult Register()
         {
             return View();
         }
@@ -53,7 +56,7 @@ namespace Lautech_Bank.Controllers
         // POST: /User/Create
 
         [HttpPost]
-        public ActionResult Create(registeration userLog)
+        public ActionResult Register([Bind(Include="fName,lName,password,confirmpassword,Email,accountType")] registeration userLog)
         {
             if (ModelState.IsValid)
             {         
@@ -70,6 +73,10 @@ namespace Lautech_Bank.Controllers
                 else
                 {                    
                     accId = (Convert.ToInt32(user.accNo)+1).ToString();
+                    while (accId.Length < 10)
+                    {
+                        accId = accId.Insert(0, "0");
+                    }
                 }               
                 var amount = 0.00;
                 Userdetail userId = new Userdetail();
@@ -90,52 +97,125 @@ namespace Lautech_Bank.Controllers
             return View(userLog);
         }
 
+        public ActionResult Logout() {
+            Session["logedUser"] = null;
+            return RedirectToAction("Index");
+        }
+
         //=================================================After Logging in======================================================//
 
         public ActionResult Transaction()
         {
-            return View(db.Transactions.ToList());
+            if (Session["logedUser"] == null)
+            {
+                return RedirectToAction("Index");
+            }
+            String accno =  Session["logedUser"].ToString();
+            var list = db.Transactions.Where(a => a.accNo.Equals(accno)).ToList();
+            return View(list);
         }
 
         public ActionResult Home()
         {
-            return View();
+            if (Session["logedUser"] != null)
+            {
+                String accno = Session["logedUser"].ToString();
+                var bal = db.Userdetails.Where(a => a.accNo.Equals(accno)).FirstOrDefault();
+                Session["balance"] = bal.amount;
+                return View();
+            }
+             return RedirectToAction("Index");
         }
+
 
         
         [HttpPost]
-        public ActionResult Home( [Bind (Include="withname")] Withdrawal WD)
+        public ActionResult Home( [Bind (Include="withdraw")] Withdrawal WD)
         {
+           
             if (ModelState.IsValid)
             {
+               String accno =  Session["logedUser"].ToString();
 
-                var res = db.Userdetails.Where(e => e.accNo.Equals(Session["logedUser"].ToString())).FirstOrDefault();
+                var res = db.Userdetails.Where(e => e.accNo.Equals(accno)).FirstOrDefault();
                 
                 try{
                   double wd =  Convert.ToDouble(WD.withdraw);
                   double currentBal = res.amount;
-                  if (currentBal >= wd)
+                  if (currentBal >= wd && wd > 0)
                   {
-                      double newBal = Math.Round(currentBal - res.amount,2);
+                      double newBal = Math.Round(currentBal - wd, 2);
                       res.amount = newBal;
                       db.Entry(res).State = EntityState.Modified;
 
                       Transactions tran = new Transactions();
-                      tran.amount = newBal.ToString();
+                      tran.amount = "-" + (wd);
+                      tran.accNo = accno;
                       tran.trans_date = DateTime.Now;
+                      tran.trans_detail = "Withdraw";
                       db.Transactions.Add(tran);
                       db.SaveChanges();
+                      ViewBag.message = "Transaction Successful.";
                       return View();
+                  }
+                  else {
+                      ViewBag.message = "Transaction Failed. Insufficient Balance";
+                      return View(WD);
                   }
                 }
                 catch{
-                    ViewBag.message = "Please enter a valid Value";
+                    ViewBag.message = "Transaction Failed. Please enter a valid value";
                         return View(WD);
                 }                
             }
-            return View(WD);
+            ViewBag.message = "Please enter the amount";
+            return View();
         }
 
+
+        public ActionResult Deposit() {
+            if (Session["logedUser"] == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Deposit([Bind(Include="withdraw")] Withdrawal WD)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                        double wd = Convert.ToDouble(WD.withdraw);
+                        String accno = Session["logedUser"].ToString();
+                        var res = db.Userdetails.Where(e => e.accNo.Equals(accno)).FirstOrDefault();
+                        res.amount += wd;
+
+                        db.Entry(res).State = EntityState.Modified;
+
+                        Transactions tran = new Transactions();
+                        tran.amount = wd.ToString();
+                        tran.accNo = accno;
+                        tran.trans_date = DateTime.Now;
+                        tran.trans_detail = "Deposit";
+                        db.Transactions.Add(tran);
+                        db.SaveChanges();
+
+                        ViewBag.message = "Transaction Successful.";
+                        return View();                                      
+                }
+                catch
+                {
+                    ViewBag.message = "Transaction Failed. Please enter a valid value";
+                    return View(WD);
+                }                
+            }
+            ViewBag.message = "Please enter the amount";
+            return View();
+        }
 
         //=================================================After Logging in======================================================//
 

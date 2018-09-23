@@ -1,0 +1,67 @@
+﻿@model Lautech_Bank.Models.registeration
+@{
+    ViewBag.Title = "Registeration";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+ <div class="main-content wrapper">       
+          <div class="container">
+            <header class="center">              
+              <h2>Registration</h2>
+              <hr>              
+            </header>  
+  
+            <div class="row gap-y">                
+                <div class="col-md-12">
+             <form method="POST">          
+            <fieldset>
+                <legend></legend>
+                    <div class="form-group">                        
+                        <input type="text" class="form-control" name="fName" placeholder="First Name">
+                        @Html.ValidationMessageFor(model => model.fName,"",htmlAttributes: new { @class="error" })                        
+                    </div>
+
+                     <div class="form-group">                        
+                        <input type="text" class="form-control" name="lName" placeholder="Last Name">
+                        @Html.ValidationMessageFor(model => model.lName,"", new {@Style="color:red" })  
+                    </div>
+
+                 <div class="form-group">                        
+                        <input type="email" class="form-control" name="Email" placeholder="Email Address">
+                     @Html.ValidationMessageFor(model => model.Email,"", new {@Style="color:red" })  
+                    </div>
+
+                 <div class="form-group">                        
+                        <select name="accountType" class="form-control">
+                            <option>Savings Account</option>
+                            <option>Current Account</option>
+                            <option>Fixed Deposit Account</option>
+                        </select>
+                    </div>
+
+                 <div class="form-group">                        
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                     @Html.ValidationMessageFor(model => model.password,"", new {@Style="color:red" })  
+                    </div>
+
+                <div class="form-group">                        
+                        <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password">
+                    @Html.ValidationMessageFor(model => model.confirmpassword,"", new {@Style="color:red" })  
+                    <span class="error">@ViewBag.message</span>
+                    </div>
+                    
+                    <div class="form-actions">                        
+                        <button type="submit" class="btn btn-bricky pull-right">Submit <i class="fa fa-arrow-circle-right"></i></button>
+                    </div>              
+                </fieldset>
+          </form>
+                 </div>
+            </div>
+          </div>      
+        
+      </div>
+       
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

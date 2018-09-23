@@ -1,33 +1,36 @@
-﻿<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-</head>
-<body>
-    <div class="container-fluid">
-    <header>
-        <h1>Lautech Bank </h1>            
+﻿
+@*        <h1>Lautech Bank </h1>            
                     <ul id="menu">
                        <li>@Html.ActionLink("Home", "Home", "User")</li>
                        <li>@Html.ActionLink("Transaction History", "Transaction", "User")</li>
                        <li>@Html.ActionLink("Account Information", "Detail", "User")</li>
-                     </ul>                   
-    </header>
-        
-        <div class="container body-wrapper">
+                     </ul>                   *@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Assets/CSS/All")
+</head>
+<body>
+    
+     @Html.Partial("_HeaderPartial")            
+
             @RenderSection("featured", required: false)
             
                 @RenderBody()
-            
-        </div>    
-      @Html.Partial("_Footer")
 
-        </div>
+    <div><h2>Account Balance <mark>₦@Session["balance"].ToString()</mark> </h2> </div>       
+    
+      @Html.Partial("_Footer")
+    
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/Assets/JS/All")
         @RenderSection("scripts", required: false)
     </body>
 </html>

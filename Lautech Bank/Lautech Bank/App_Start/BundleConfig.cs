@@ -23,9 +23,16 @@ namespace Lautech_Bank
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(                                        
-                                        "~/Content/myStyle.css", 
-                                        "~/Content/bootstrap.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(                                                                                 
+                                        "~/Content/bootstrap.css",
+                                         "~/Content/assets/css/style.scss"));
+
+           bundles.Add(new StyleBundle("~/Assets/CSS/All").IncludeDirectory(
+                                       "~/Content/assets/css","*.css"));
+
+           bundles.Add(new ScriptBundle("~/Assets/JS/All").IncludeDirectory(
+                                     "~/Content/assets/js", "*.js"));
+
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

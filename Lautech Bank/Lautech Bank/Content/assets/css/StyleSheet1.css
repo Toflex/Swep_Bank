@@ -1,0 +1,46 @@
+﻿body {
+    background-color:rgb(241, 240, 225)
+}
+
+.bord {
+    border:2px solid black;
+}
+
+    #input {
+        width:330px;
+    }
+
+.error {
+ color:red;
+}
+
+.wrapper{
+    margin-top:70px;
+    margin-bottom:50px;
+}
+
+.center {
+    text-align:center;
+}
+
+.head-color {
+   background-color: rgb(103, 220, 16);
+}
+
+td {
+  color:black;
+  font-size:15pt;
+   font-family:sans-serif;
+    background-color: white;  
+}
+
+#nav-li li{
+    font-size:11pt;
+}
+
+th {
+  background-color: white;
+  font-size:18pt;
+  font-family:sans-serif;
+  font-weight:bold;
+}

@@ -2,26 +2,25 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Assets/CSS/All")
 </head>
 <body>
-    <div class="container-fluid">
-   <header>
-        <h1>Lautech Bank </h1>                                
-    </header>
-        
-        <div class="container body-wrapper">
+    
+     @Html.Partial("_MainPartial")
+            
             @RenderSection("featured", required: false)
             
                 @RenderBody()
             
-        </div>
+    
       @Html.Partial("_Footer")
-        </div>
+    
 
         @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Assets/JS/All")
         @RenderSection("scripts", required: false)
     </body>
 </html>
