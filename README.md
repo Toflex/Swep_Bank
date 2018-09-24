@@ -1,15 +1,19 @@
-# Swep_Bank
-Swep project Lautech
 
-These project is given me problem
+There are three tables
 
-The element 'Principal' in namespace 'http://schemas.microsoft.com/ado/2009/11/edm' has incomplete content. List of possible elements expected: 'PropertyRef' in namespace 'http://schemas.microsoft.com/ado/2009/11/edm'.
+Loan
+Userdetail
+Transaction
 
+Userdetail stores user infomations things like Balance,Password etc
 
-Database schemas
-================
-userdetail
-Account_detail     // Fixed,Savings,Current
-transaction		  //  Account history
-Account_Balance
+Transaction stores all transaction Debit and credit (question ii)
 
+The code for intrest on balance for all deposit within 30 days is in '../View/User'.
+
+How it works 
+=============
+
+1.For new users they have to register.
+
+2.Existing user login with their account number and enter their password 

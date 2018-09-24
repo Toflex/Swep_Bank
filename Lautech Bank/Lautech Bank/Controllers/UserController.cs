@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Lautech_Bank.Models.MyModels;
 using Lautech_Bank.Models;
 using System.Collections;
+using Lautech_Bank.Models.Account;
+using System.Data.SqlClient;
 
 namespace Lautech_Bank.Controllers
 {
@@ -19,7 +21,8 @@ namespace Lautech_Bank.Controllers
         // GET: /User/
 
         public ActionResult Index()
-        {            
+        {
+            Intrest();
             return View();
         }
 
@@ -149,7 +152,7 @@ namespace Lautech_Bank.Controllers
                       db.Entry(res).State = EntityState.Modified;
 
                       Transactions tran = new Transactions();
-                      tran.amount = "-" + (wd);
+                      tran.amount = -wd;
                       tran.accNo = accno;
                       tran.trans_date = DateTime.Now;
                       tran.trans_detail = "Withdraw";
@@ -197,7 +200,7 @@ namespace Lautech_Bank.Controllers
                         db.Entry(res).State = EntityState.Modified;
 
                         Transactions tran = new Transactions();
-                        tran.amount = wd.ToString();
+                        tran.amount = wd;
                         tran.accNo = accno;
                         tran.trans_date = DateTime.Now;
                         tran.trans_detail = "Deposit";
@@ -217,8 +220,103 @@ namespace Lautech_Bank.Controllers
             return View();
         }
 
+
+        public ActionResult Loan() {
+            Session["loan"] = Properties.Settings.Default.LoanIntrest;
+            string accno = Session["logedUser"].ToString();
+            var data = db.Loans.Where(a => a.accNo.Equals(accno)).ToList();
+            return View(data);
+        }
+
+        [HttpPost]
+        public ActionResult Loan([Bind(Include="amount,duration")] LoanClass lc)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    double amount = Convert.ToDouble(lc.amount);
+                    int duration = Convert.ToInt32(lc.duration);
+
+                    Loan ln = new Loan();
+                    ln.accNo = Session["logedUser"].ToString();
+                    ln.amount = amount;
+                    ln.duration = duration;
+                    ln.loanDate = DateTime.Now;
+                    ln.Pending = true;
+
+                    db.Loans.Add(ln);
+                    db.SaveChanges();
+                    ViewBag.success = "Loan request has been submitted.";
+
+                    string accno = Session["logedUser"].ToString();
+                    var data = db.Loans.Where(a => a.accNo.Equals(accno)).ToList();
+                    return View(data);
+                }
+                catch {
+                    ViewBag.message = "Enter valid values.";
+                    return View(lc);
+                }
+            }
+            @ViewBag.amount = "Enter amount";
+            return View(lc);
+        }
+
         //=================================================After Logging in======================================================//
 
+
+        private int excess = 0;
+        private int increment = 0;
+        private int diff = 0;
+        private DateTime currentDate;
+        private DateTime startDate;        
+
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\v11.0; Initial Catalog=Lautech_BankContext-20180920125143; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|Lautech_BankContext-20180920125143.mdf");
+
+        public void Intrest()
+        {
+            if(Session["sd"] == null)
+            {
+                con.Open();                    
+                SqlCommand cmd = new SqlCommand("select startdate from banklogics  where id = 1",con);
+                Session["sd"] = cmd.ExecuteScalar();
+                con.Close();
+            }
+            currentDate = DateTime.Now.Date;
+            startDate = Convert.ToDateTime(Session["sd"].ToString());
+            if (currentDate >= (startDate.AddDays(30)))
+            {
+                diff = (int)Math.Floor((currentDate.Subtract(startDate).TotalDays));
+                increment = diff / 30;
+                excess = diff % 30;
+                increment *= Properties.Settings.Default.PercentageIntrest;
+              
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select accNo,sum(amount) from Transactions where trans > CONVERT(datetime, '"
+                    + startDate + "' and dates < CONVERT(datetime, '" + startDate.AddDays(diff - excess) + "') group by name", con);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    var res = db.Userdetails.Where(e => e.accNo.Equals(dr.GetValue(0).ToString())).FirstOrDefault();
+
+                    res.amount = dr.GetDouble(1);
+
+                    db.Entry(res).State = EntityState.Modified;
+
+                    db.SaveChanges();
+
+                }
+                con.Close();
+
+                var sd = db.BankLogics.Where(e => e.Id.Equals(1)).FirstOrDefault();
+                sd.startdate = startDate;
+                db.Entry(sd).State = EntityState.Modified;
+                db.SaveChanges();
+
+            }
+        }
 
         protected override void Dispose(bool disposing)
         {

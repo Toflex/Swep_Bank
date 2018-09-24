@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Lautech_Bank.Models.MyModels.Loan>
+
+@{
+    ViewBag.Title = "Loan";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container wrapper" >
+            <header class="center">              
+                <h2>Get Loan</h2>
+              <hr>              
+            </header>  
+
+    <div class="row gap-y">
+    <p>Loan is been given to customers that meet some spefic requirements</p>  
+        <br />  
+        <ol>
+            <li>Loan must not exceed 5 times the available balance.</li>
+            <li>Collateral will be required for loan approval.</li>
+            <li>Interest @Session["loan"].ToString() % will be collected on all loan.</li>
+        </ol>
+
+        <div class="col-md-12">
+
+             <form method="POST">          
+            <fieldset>
+                <legend style="color:red;font-family:sans-serif;font-size:13pt;font-weight:bold">@ViewBag.message</legend>
+                <span style="color:green;font-family:sans-serif;font-size:13pt;font-weight:bold">@ViewBag.success</span>
+                    <div class="form-group">                        
+                        <input type="text" class="form-control" name="amount" placeholder="100.00">
+                       <span style="color:red;font-family:sans-serif;font-size:13pt;font-weight:bold">@ViewBag.amount</span> 
+                    </div>
+
+                     
+                 <div class="form-group">  
+                     <label>Loan duration</label>                      
+                        <select name="duration" class="form-control">
+                            <option value="6">6 Months</option>
+                            <option value="8">8 Months</option>
+                            <option value="12">1 Year</option>                            
+                        </select>
+                                         
+                    </div>
+                 
+                    <div class="form-actions">                        
+                        <button class="btn btn-round btn-success pull-left">Submit Request<i class="fa fa-arrow-circle-right"></i></button>
+                    </div>              
+                </fieldset>
+          </form>
+            </div>
+
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>                        
+                        <th>Requested Amount</th>
+                        <th>Duration (month)</th>
+                        <th>Request date</th>
+                        <th>Pending</th>
+                    </tr>
+                                                                     
+                    @foreach(var item in Model){                   
+                        <tr>
+                            <td> @Html.DisplayFor(modelItem => item.amount)</td>
+                            <td> @Html.DisplayFor(modelItem => item.duration)</td>
+                            <td>@Html.DisplayFor(modelItem => item.loanDate)</td>
+                            <td> @Html.DisplayFor(modelItem => item.Pending)</td>
+                        </tr>                                                                 
+                      }
+                </table>
+            </div>
+        </div>
+
+</div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

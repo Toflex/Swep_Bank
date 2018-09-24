@@ -20,7 +20,7 @@ namespace Lautech_Bank.Models.MyModels
 
         [Required]
         [Display(Name = "Amount")]
-        public string amount { get; set; }
+        public double amount { get; set; }
 
         [Required]
         [Display(Name = "Transaction Date")]

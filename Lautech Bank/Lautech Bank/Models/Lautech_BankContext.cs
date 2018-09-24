@@ -21,5 +21,7 @@ namespace Lautech_Bank.Models
         
         public DbSet<Transactions> Transactions { get; set; }
         public DbSet<Userdetail> Userdetails { get; set; }
+        public DbSet<Loan> Loans { get; set; }
+        public DbSet<BankLogic> BankLogics { get; set; }
     }
 }
